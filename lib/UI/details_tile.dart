@@ -13,7 +13,7 @@ class DetailsTile extends StatelessWidget {
           imgUrl,
           height: 70,
         ),
-        Text(text,style: TextStyle(color: Colors.grey[900],fontSize: 20),)
+        Text(text,style: TextStyle(color: Colors.grey[900],fontSize: 22),)
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/UI/details_tile.dart';
+import 'package:intl/intl.dart';
 
 class WeatherDetails extends StatelessWidget {
   final int tag;
@@ -38,11 +39,11 @@ class WeatherDetails extends StatelessWidget {
               Hero(
                 tag: tag,
                 child: CircleAvatar(
-                    radius: 100,
+                    radius: 70,
                     backgroundColor: Colors.grey[300],
                     child: Image.network(
                       'http://openweathermap.org/img/wn/$iconCode@2x.png',
-                      scale: 0.8,
+                      //scale: 1,
                     )),
               ),
               SizedBox(
@@ -50,21 +51,21 @@ class WeatherDetails extends StatelessWidget {
               ),
               Text(
                 temp.toString() + " °C",
-                style: TextStyle(color: Colors.grey[200], fontSize: 36),
+                style: TextStyle(color: Colors.grey[200], fontSize: 46),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
                 cityName + " | " + countryName,
-                style: TextStyle(color: Colors.grey[200], fontSize: 24),
+                style: TextStyle(color: Colors.grey[200], fontSize: 30),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                weather,
-                style: TextStyle(color: Colors.grey[200], fontSize: 24),
+                weather[0].toUpperCase()+weather.substring(1),
+                style: TextStyle(color: Colors.grey[200], fontSize: 28),
               ),
               SizedBox(
                 height: 30,
@@ -73,18 +74,19 @@ class WeatherDetails extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      DetailsTile(
-                          imgUrl: "assets/pressure.png",
-                          text: pressure + " hPa"),
-                      DetailsTile(
-                        imgUrl: "assets/humidity.png",
-                        text: humidity + "%",
-                      ),
-                      DetailsTile(
-                          imgUrl: "assets/wind.png", text: windSpeed + "  m/s"),
+                  child: 
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          DetailsTile(
+                              imgUrl: "assets/pressure.png",
+                              text: pressure + " hPa"),
+                          DetailsTile(
+                            imgUrl: "assets/humidity.png",
+                            text: humidity + "%",
+                          ),
+                          DetailsTile(
+                              imgUrl: "assets/wind.png", text: windSpeed + "  m/s"),
                     ],
                   ),
                 ),
